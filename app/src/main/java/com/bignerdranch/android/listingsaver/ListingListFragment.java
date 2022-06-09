@@ -115,6 +115,7 @@ public class ListingListFragment extends Fragment {
             sAdapter = new ListingAdapter(listings);
             listRecyclerView.setAdapter(sAdapter);
         } else {
+            sAdapter.setListings(listings);
             sAdapter.notifyDataSetChanged();
         }
 

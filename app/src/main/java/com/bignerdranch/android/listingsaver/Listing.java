@@ -17,7 +17,11 @@ public class Listing {
     private boolean isFullTime;
 
     public Listing(){
-        listID = UUID.randomUUID();
+        this(UUID.randomUUID());
+    }
+
+    public Listing(UUID id){
+        listID = id;
         listDate = new Date();
         listTime = new Date();
     }

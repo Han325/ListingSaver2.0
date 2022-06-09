@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ListingSaver</string>
+    <string name="app_name">Listing Saver</string>
     <string name="total_listing">Total Listing</string>
     <string name="subtitle">%15d Listings</string>
     <string name="listing_title_hint">Enter a title for the job listing</string>

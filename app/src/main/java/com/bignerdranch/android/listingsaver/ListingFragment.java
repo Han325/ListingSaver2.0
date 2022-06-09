@@ -55,6 +55,15 @@ public class ListingFragment extends Fragment {
     }
 
     @Override
+    public void onPause(){
+        super.onPause();
+
+        ListingLab.get(getActivity())
+                .updateListing(sListing);
+    }
+
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_listing, container, false);
 
@@ -98,7 +107,7 @@ public class ListingFragment extends Fragment {
 
         listingLocationField = v.findViewById(R.id.listing_location);
 //        REMEMBER TO SET THE FIELDS, OTHERWISE OTHER FIELDS WILL BE BLANK
-//        listingCompanyField.setText(sListing.getListCompany());
+        listingLocationField.setText(sListing.getListLocation());
 
         listingLocationField.addTextChangedListener(new TextWatcher() {
             @Override
@@ -118,7 +127,7 @@ public class ListingFragment extends Fragment {
         });
 
         listingLinkField = v.findViewById(R.id.listing_link);
-        listingLinkField.setText(sListing.getListTitle());
+        listingLinkField.setText(sListing.getListLink());
         listingLinkField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -137,7 +146,7 @@ public class ListingFragment extends Fragment {
         });
 
         listingSalaryField = v.findViewById(R.id.listing_salary);
-        listingSalaryField.setText(sListing.getListTitle());
+        listingSalaryField.setText(sListing.getListSalary());
         listingSalaryField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
