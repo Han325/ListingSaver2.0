@@ -49,6 +49,11 @@ public class ListingLab {
         sDatabase.insert(ListingDbSchema.ListingTable.NAME, null, values);
     }
 
+    public void deleteListing(String[] values){
+
+        sDatabase.delete(ListingDbSchema.ListingTable.NAME, "uuid=?", values);
+    }
+
     public List<Listing> getListings(){
 
 //        return sListings;

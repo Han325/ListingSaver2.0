@@ -59,6 +59,8 @@ public class ListingFragment extends Fragment {
     private ImageButton listPhotoButton;
     private ImageView listPhotoView;
 
+    private Button listDeleteButton;
+
     public static ListingFragment newInstance(UUID listingID) {
         Bundle args = new Bundle();
         args.putSerializable(ARG_LISTING_ID, listingID);
@@ -288,6 +290,20 @@ public class ListingFragment extends Fragment {
 
         listPhotoView = (ImageView) v.findViewById(R.id.listing_photo);
         updatePhotoView();
+
+
+        listDeleteButton = (Button) v.findViewById(R.id.delete_button);
+        listDeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] id = new String[]{String.valueOf(sListing.getListID())};
+
+                ListingLab.get(getActivity()).deleteListing(id);
+                Intent intent = new Intent(getActivity(), ListingListActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         return v;
