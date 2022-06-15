@@ -15,6 +15,7 @@ public class ListingDbSchema {
             public static final String LINK = "link";
             public static final String SALARY = "salary";
             public static final String FULL_TIME = "full_time";
+            public static final String RECRUITER = "suspect";
 
         }
     }

@@ -15,6 +15,7 @@ public class Listing {
     private String listLink;
     private String listSalary;
     private boolean isFullTime;
+    private String listRecruiter;
 
     public Listing(){
         this(UUID.randomUUID());
@@ -96,5 +97,17 @@ public class Listing {
 
     public void setFullTime(boolean fullTime) {
         isFullTime = fullTime;
+    }
+
+    public String getListRecruiter() {
+        return listRecruiter;
+    }
+
+    public void setListRecruiter(String listRecruiter) {
+        this.listRecruiter = listRecruiter;
+    }
+
+    public String getPhotoFileName(){
+        return "IMG_" + getListID().toString() + ".jpg";
     }
 }

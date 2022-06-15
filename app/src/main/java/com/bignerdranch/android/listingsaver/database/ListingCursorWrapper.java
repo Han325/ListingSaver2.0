@@ -23,6 +23,8 @@ public class ListingCursorWrapper extends CursorWrapper {
         String link = getString(getColumnIndex(ListingDbSchema.ListingTable.Cols.LINK));
         String salary = getString(getColumnIndex(ListingDbSchema.ListingTable.Cols.SALARY));
         int fullTime = getInt(getColumnIndex(ListingDbSchema.ListingTable.Cols.FULL_TIME));
+        String recruiter = getString(getColumnIndex(ListingDbSchema.ListingTable.Cols.RECRUITER));
+
 
 
         Listing listing = new Listing(UUID.fromString(uuidString));
@@ -34,6 +36,7 @@ public class ListingCursorWrapper extends CursorWrapper {
         listing.setListLink(link);
         listing.setListSalary(salary);
         listing.setFullTime(fullTime != 0);
+        listing.setListRecruiter(recruiter);
 
         return listing;
     }

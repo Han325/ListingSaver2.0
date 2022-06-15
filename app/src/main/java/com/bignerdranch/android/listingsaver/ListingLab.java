@@ -9,6 +9,7 @@ import com.bignerdranch.android.listingsaver.database.ListingBaseHelper;
 import com.bignerdranch.android.listingsaver.database.ListingCursorWrapper;
 import com.bignerdranch.android.listingsaver.database.ListingDbSchema;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -96,6 +97,13 @@ public class ListingLab {
 
     }
 
+
+    public File getPhotoFile (Listing listing){
+        File filesDir = sContext.getFilesDir();
+        return new File(filesDir, listing.getPhotoFileName());
+    }
+
+
     public void updateListing(Listing listing){
         String uuidString = listing.getListID().toString();
         ContentValues values = getContentValues(listing);
@@ -133,6 +141,8 @@ public class ListingLab {
         values.put(ListingDbSchema.ListingTable.Cols.SALARY, listing.getListSalary());
         values.put(ListingDbSchema.ListingTable.Cols.LINK, listing.getListLink());
         values.put(ListingDbSchema.ListingTable.Cols.FULL_TIME, listing.isFullTime());
+        values.put(ListingDbSchema.ListingTable.Cols.RECRUITER, listing.getListRecruiter());
+
 
         return values;
     }
