@@ -51,7 +51,7 @@ public class ListingListFragment extends Fragment {
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         updateUI();
     }
@@ -111,7 +111,7 @@ public class ListingListFragment extends Fragment {
         ListingLab listingLab = ListingLab.get(getActivity());
         List<Listing> listings = listingLab.getListings();
 
-        if (sAdapter == null){
+        if (sAdapter == null) {
             sAdapter = new ListingAdapter(listings);
             listRecyclerView.setAdapter(sAdapter);
         } else {
@@ -123,8 +123,7 @@ public class ListingListFragment extends Fragment {
 
     }
 
-
-    private class ListingHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    private class ListingHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView sListingTitleView;
         private TextView sListingCompanyView;
@@ -143,18 +142,17 @@ public class ListingListFragment extends Fragment {
         }
 
         @Override
-        public void onClick(View view){
+        public void onClick(View view) {
             Intent intent = ListingPagerActivity.newIntent(getActivity(), sListing.getListID());
             startActivity(intent);
         }
 
-        public void bind(Listing listing){
+        public void bind(Listing listing) {
             sListing = listing;
             sListingTitleView.setText(sListing.getListTitle());
             sListingCompanyView.setText(sListing.getListCompany());
             sFullTimeImageView.setVisibility(listing.isFullTime() ? View.VISIBLE : View.GONE);
         }
-
 
     }
 
@@ -172,7 +170,6 @@ public class ListingListFragment extends Fragment {
 
         }
 
-
         @Override
         public void onBindViewHolder(ListingHolder holder, int position) {
             Listing listing = sListings.get(position);
@@ -184,7 +181,7 @@ public class ListingListFragment extends Fragment {
             return sListings.size();
         }
 
-        public void setListings(List<Listing> listings){
+        public void setListings(List<Listing> listings) {
             sListings = listings;
         }
 

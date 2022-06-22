@@ -27,7 +27,7 @@ public class ListingPagerActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listing_pager);
 
@@ -51,15 +51,12 @@ public class ListingPagerActivity extends AppCompatActivity {
             }
         });
 
-        for (int i = 0; i< sListings.size(); i++){
-            if(sListings.get(i).getListID().equals(listingID)){
+        for (int i = 0; i < sListings.size(); i++) {
+            if (sListings.get(i).getListID().equals(listingID)) {
                 sViewPager.setCurrentItem(i);
                 break;
             }
         }
-
-
-
     }
 
 }

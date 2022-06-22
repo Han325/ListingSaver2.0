@@ -16,48 +16,35 @@ import java.util.UUID;
 
 public class ListingLab {
     private static ListingLab sListingLab;
-//    private List<Listing> sListings;
     private Context sContext;
     private SQLiteDatabase sDatabase;
 
 
     public static ListingLab get(Context context) {
-       if (sListingLab == null) {
-           sListingLab = new ListingLab(context);
-       }
-       return sListingLab;
+        if (sListingLab == null) {
+            sListingLab = new ListingLab(context);
+        }
+        return sListingLab;
     }
 
-    private ListingLab(Context context){
-//        sListings = new ArrayList<>();
+    private ListingLab(Context context) {
         sContext = context.getApplicationContext();
         sDatabase = new ListingBaseHelper(sContext)
                 .getWritableDatabase();
-//        for (int i = 0; i < 100; i++){
-//            Listing listing = new Listing();
-//            listing.setListTitle("Listing #" + i);
-//            listing.setListCompany("Company #" + i);
-//            listing.setFullTime(i % 2 == 0);
-//            sListings.add(listing);
-//        }
     }
 
-    public void addListing(Listing l){
-//        sListings.add(l);
+    public void addListing(Listing l) {
         ContentValues values = getContentValues(l);
 
         sDatabase.insert(ListingDbSchema.ListingTable.NAME, null, values);
     }
 
-    public void deleteListing(String[] values){
+    public void deleteListing(String[] values) {
 
         sDatabase.delete(ListingDbSchema.ListingTable.NAME, "uuid=?", values);
     }
 
-    public List<Listing> getListings(){
-
-//        return sListings;
-//        return new ArrayList<>();
+    public List<Listing> getListings() {
 
         List<Listing> listings = new ArrayList<>();
 
@@ -76,17 +63,11 @@ public class ListingLab {
         return listings;
     }
 
-    public Listing getListing(UUID id){
-//        for (Listing listing : sListings){
-//            if(listing.getListID().equals(id)){
-//                return listing;
-//
-//            }
-//        }
+    public Listing getListing(UUID id) {
 
         ListingCursorWrapper cursor = queryListings(
                 ListingDbSchema.ListingTable.Cols.UUID + " =? ",
-                new String[] { id.toString() }
+                new String[]{id.toString()}
         );
 
         try {
@@ -103,23 +84,23 @@ public class ListingLab {
     }
 
 
-    public File getPhotoFile (Listing listing){
+    public File getPhotoFile(Listing listing) {
         File filesDir = sContext.getFilesDir();
         return new File(filesDir, listing.getPhotoFileName());
     }
 
 
-    public void updateListing(Listing listing){
+    public void updateListing(Listing listing) {
         String uuidString = listing.getListID().toString();
         ContentValues values = getContentValues(listing);
 
         sDatabase.update(ListingDbSchema.ListingTable.NAME, values,
                 ListingDbSchema.ListingTable.Cols.UUID + " = ? ",
-                new String[] {uuidString});
+                new String[]{uuidString});
 
     }
 
-    private ListingCursorWrapper queryListings(String whereClause, String[] whereArgs){
+    private ListingCursorWrapper queryListings(String whereClause, String[] whereArgs) {
         Cursor cursor = sDatabase.query(
                 ListingDbSchema.ListingTable.NAME,
                 null,
@@ -133,9 +114,7 @@ public class ListingLab {
         return new ListingCursorWrapper(cursor);
     }
 
-
-
-    private static ContentValues getContentValues(Listing listing){
+    private static ContentValues getContentValues(Listing listing) {
         ContentValues values = new ContentValues();
         values.put(ListingDbSchema.ListingTable.Cols.UUID, listing.getListID().toString());
         values.put(ListingDbSchema.ListingTable.Cols.TITLE, listing.getListTitle());
@@ -147,7 +126,6 @@ public class ListingLab {
         values.put(ListingDbSchema.ListingTable.Cols.LINK, listing.getListLink());
         values.put(ListingDbSchema.ListingTable.Cols.FULL_TIME, listing.isFullTime());
         values.put(ListingDbSchema.ListingTable.Cols.RECRUITER, listing.getListRecruiter());
-
 
         return values;
     }

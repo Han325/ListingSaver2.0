@@ -15,9 +15,9 @@ public class PictureUtils {
         float srcHeight = options.outHeight;
 
         int inSampleSize = 1;
-        if (srcHeight > destHeight || srcWidth >destWidth) {
+        if (srcHeight > destHeight || srcWidth > destWidth) {
             float heightScale = srcHeight / destHeight;
-            float widthScale = srcWidth /destWidth;
+            float widthScale = srcWidth / destWidth;
 
             inSampleSize = Math.round(heightScale > widthScale ? heightScale :
                     widthScale);
@@ -29,7 +29,7 @@ public class PictureUtils {
         return BitmapFactory.decodeFile(path, options);
     }
 
-    public static Bitmap getScaledBitmap(String path, Activity activity){
+    public static Bitmap getScaledBitmap(String path, Activity activity) {
         Point size = new Point();
         activity.getWindowManager().getDefaultDisplay()
                 .getSize(size);

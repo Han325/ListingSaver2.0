@@ -5,12 +5,12 @@
         android:id="@+id/total_listing"
         android:icon="@drawable/ic_menu_total"
         android:title="@string/total_listing"
-        app:showAsAction="ifRoom|withText"/>
+        app:showAsAction="ifRoom|withText" />
 
     <item
         android:id="@+id/add_listing"
         android:icon="@drawable/ic_add"
         android:title="@string/total_listing"
-        app:showAsAction="ifRoom|withText"/>
+        app:showAsAction="ifRoom|withText" />
 
 </menu>

@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
-import android.database.CursorWrapper;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -86,7 +84,6 @@ public class ListingFragment extends Fragment {
                 .updateListing(sListing);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_listing, container, false);
@@ -96,7 +93,6 @@ public class ListingFragment extends Fragment {
         listingTitleField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Blanko
             }
 
             @Override
@@ -106,7 +102,6 @@ public class ListingFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // blamo
             }
         });
 
@@ -130,9 +125,7 @@ public class ListingFragment extends Fragment {
         });
 
         listingLocationField = v.findViewById(R.id.listing_location);
-//        REMEMBER TO SET THE FIELDS, OTHERWISE OTHER FIELDS WILL BE BLANK
         listingLocationField.setText(sListing.getListLocation());
-
         listingLocationField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -189,15 +182,8 @@ public class ListingFragment extends Fragment {
         });
 
         listingDateButton = (Button) v.findViewById(R.id.listing_date);
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
-//        String dateOnly = dateFormat.format(sListing.getListDate());
-//        String formatedlistDate = dateOnly;
-//        listingDateButton.setText(formatedlistDate);
         updateDate();
 
-
-        // listingDateButton.setEnabled(false);
-        // DatePicker code starts
         listingDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -217,16 +203,12 @@ public class ListingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
-//                TimePickerFragment dialog = new TimePickerFragment();
-//                dialog.show(manager, DIALOG_TIME);
                 TimePickerFragment dialog = new TimePickerFragment()
                         .newInstance(sListing.getListTime());
                 dialog.setTargetFragment(ListingFragment.this, REQUEST_TIME);
                 dialog.show(manager, DIALOG_TIME);
             }
         });
-        // Add TimePicker code here
-
 
         fullTimeCheckbox = (CheckBox) v.findViewById(R.id.full_time);
         fullTimeCheckbox.setChecked(sListing.isFullTime());
@@ -237,7 +219,6 @@ public class ListingFragment extends Fragment {
 
             }
         });
-
 
         final Intent pickContact = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
         listRecruiterButton = (Button) v.findViewById(R.id.choose_recruiter);
@@ -291,7 +272,6 @@ public class ListingFragment extends Fragment {
         listPhotoView = (ImageView) v.findViewById(R.id.listing_photo);
         updatePhotoView();
 
-
         listDeleteButton = (Button) v.findViewById(R.id.delete_button);
         listDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -303,8 +283,6 @@ public class ListingFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
 
         return v;
 
@@ -343,7 +321,7 @@ public class ListingFragment extends Fragment {
             } finally {
                 c.close();
             }
-        } else if (requestCode == REQUEST_PHOTO){
+        } else if (requestCode == REQUEST_PHOTO) {
             Uri uri = FileProvider.getUriForFile(getActivity(),
                     "com.bignerdranch.android.listingsaver.fileprovider",
                     sPhotoFile);
@@ -377,8 +355,8 @@ public class ListingFragment extends Fragment {
         listingTimeButton.setText(timeOnly);
     }
 
-    private void updatePhotoView(){
-        if(sPhotoFile == null || !sPhotoFile.exists()) {
+    private void updatePhotoView() {
+        if (sPhotoFile == null || !sPhotoFile.exists()) {
             listPhotoView.setImageDrawable(null);
         } else {
             Bitmap bitmap = PictureUtils.getScaledBitmap(

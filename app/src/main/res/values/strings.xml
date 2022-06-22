@@ -7,7 +7,6 @@
     <string name="listing_location_hint">Enter the location of the job listing</string>
     <string name="listing_salary_hint">Enter the salary for the job listing</string>
     <string name="listing_link_hint">Job listing link</string>
-
     <string name="listing_title_label">Job Title</string>
     <string name="listing_location_label">Location</string>
     <string name="listing_company_label">Company</string>

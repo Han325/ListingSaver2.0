@@ -24,7 +24,7 @@ public class TimePickerFragment extends DialogFragment {
 
     private TimePicker sTimePicker;
 
-    public static TimePickerFragment newInstance(Date time){
+    public static TimePickerFragment newInstance(Date time) {
         Bundle args = new Bundle();
         args.putSerializable(ARG_TIME, time);
 
@@ -34,14 +34,13 @@ public class TimePickerFragment extends DialogFragment {
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState){
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         Date time = (Date) getArguments().getSerializable(ARG_TIME);
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(time);
         int hour = calendar.get(Calendar.HOUR);
         int min = calendar.get(Calendar.MINUTE);
-
 
 
         View v = LayoutInflater.from(getActivity())
@@ -70,8 +69,8 @@ public class TimePickerFragment extends DialogFragment {
                 .create();
     }
 
-    private void sendResult(int resultCode, Date time){
-        if (getTargetFragment() == null){
+    private void sendResult(int resultCode, Date time) {
+        if (getTargetFragment() == null) {
             return;
         }
 

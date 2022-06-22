@@ -17,11 +17,11 @@ public class Listing {
     private boolean isFullTime;
     private String listRecruiter;
 
-    public Listing(){
+    public Listing() {
         this(UUID.randomUUID());
     }
 
-    public Listing(UUID id){
+    public Listing(UUID id) {
         listID = id;
         listDate = new Date();
         listTime = new Date();
@@ -107,7 +107,7 @@ public class Listing {
         this.listRecruiter = listRecruiter;
     }
 
-    public String getPhotoFileName(){
+    public String getPhotoFileName() {
         return "IMG_" + getListID().toString() + ".jpg";
     }
 }
