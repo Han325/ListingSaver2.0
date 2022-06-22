@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:layout_marginTop="2dp"
+    android:background="@drawable/shape"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
 
     <TextView
         android:id="@+id/listing_title"
@@ -15,6 +20,7 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/listing_company"
+        android:fontFamily="@font/dmsans_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +32,7 @@
         android:layout_width="272dp"
         android:layout_height="19dp"
         android:text="Listing Company"
+        android:fontFamily="@font/dmsans_italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"

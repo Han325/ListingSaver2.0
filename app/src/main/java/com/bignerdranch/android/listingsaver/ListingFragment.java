@@ -222,7 +222,7 @@ public class ListingFragment extends Fragment {
                 TimePickerFragment dialog = new TimePickerFragment()
                         .newInstance(sListing.getListTime());
                 dialog.setTargetFragment(ListingFragment.this, REQUEST_TIME);
-                dialog.show(manager, DIALOG_DATE);
+                dialog.show(manager, DIALOG_TIME);
             }
         });
         // Add TimePicker code here
