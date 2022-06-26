@@ -1,3 +1,5 @@
+// Java class to contain the detail view fragment
+
 package com.bignerdranch.android.listingsaver;
 
 import android.app.Activity;
@@ -110,7 +112,6 @@ public class ListingFragment extends Fragment {
         listingCompanyField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Blanko
             }
 
             @Override
@@ -120,7 +121,6 @@ public class ListingFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // blamo
             }
         });
 
@@ -129,7 +129,6 @@ public class ListingFragment extends Fragment {
         listingLocationField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Blanko
             }
 
             @Override
@@ -139,7 +138,6 @@ public class ListingFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // blamo
             }
         });
 
@@ -148,7 +146,6 @@ public class ListingFragment extends Fragment {
         listingLinkField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Blanko
             }
 
             @Override
@@ -158,7 +155,6 @@ public class ListingFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // blamo
             }
         });
 
@@ -167,7 +163,6 @@ public class ListingFragment extends Fragment {
         listingSalaryField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Blanko
             }
 
             @Override
@@ -177,7 +172,6 @@ public class ListingFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // blamo
             }
         });
 
@@ -288,6 +282,7 @@ public class ListingFragment extends Fragment {
 
     }
 
+    // Function to handle results received from other Activities
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode != Activity.RESULT_OK) {
@@ -330,9 +325,7 @@ public class ListingFragment extends Fragment {
                     Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
 
             updatePhotoView();
-        }
-
-        if (requestCode == REQUEST_TIME) {
+        } else if (requestCode == REQUEST_TIME) {
             Date date = (Date) data
                     .getSerializableExtra(TimePickerFragment.EXTRA_TIME);
             sListing.setListTime(date);
@@ -344,14 +337,12 @@ public class ListingFragment extends Fragment {
     private void updateDate() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
         String dateOnly = dateFormat.format(sListing.getListDate());
-        String formatedlistDate = dateOnly;
         listingDateButton.setText(dateOnly);
     }
 
     private void updateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
         String timeOnly = dateFormat.format(sListing.getListTime());
-        String formatedlistDate = timeOnly;
         listingTimeButton.setText(timeOnly);
     }
 

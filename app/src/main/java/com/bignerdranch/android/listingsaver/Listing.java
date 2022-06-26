@@ -1,6 +1,5 @@
 package com.bignerdranch.android.listingsaver;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 

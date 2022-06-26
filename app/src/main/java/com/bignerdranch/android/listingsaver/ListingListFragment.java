@@ -1,3 +1,5 @@
+// Java class to contain the RecyclerView Fragment
+
 package com.bignerdranch.android.listingsaver;
 
 import android.os.Bundle;
