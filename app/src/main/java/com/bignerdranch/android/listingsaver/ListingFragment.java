@@ -1,3 +1,5 @@
+// Name: Eu Yu Han
+// Student ID: 18123547
 // Java class to contain the detail view fragment
 
 package com.bignerdranch.android.listingsaver;
